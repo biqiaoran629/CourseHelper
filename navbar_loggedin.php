@@ -19,7 +19,7 @@
       <li><a href="about.php">About</a></li>
     </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><p class="navbar-text" id="logged-in"><?php if(!isset($_SESSION))   {  session_start();  }  echo "Welcome, ".$_SESSION['email']."!  <a href='logout.php' style= 'margin-left:15px'>Logout</a> <a href='member.php' style= 'margin-left:15px'>My Page</a>"?> </p></li>
+        <li><p class="navbar-text" id="logged-in"><?php if(!isset($_SESSION))   {  session_start();  }  echo "Welcome, ".$_SESSION['name']."!  <a href='logout.php' style= 'margin-left:15px'>Logout</a> <a href='member.php' style= 'margin-left:15px'>My Page</a>"?> </p></li>
       
         </li>
 

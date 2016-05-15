@@ -28,6 +28,10 @@ $('#btn-contact-submit').click(function (e){
 		console.log(contactData);
 		var contactDB = new Firebase('https://course-helper.firebaseio.com/contact');
 		contactDB.push(contactData);
+		 $('.contact-form').find('input[name="username"]').val('');
+		$('.contact-form').find('input[name="email"]').val('');
+		$('.contact-form').find('textarea[name="message"]').val('');
+		alert("Your comment has been submitted!")
 
 	}
 });

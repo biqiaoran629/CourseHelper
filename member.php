@@ -17,29 +17,36 @@
 </head>
 <body>
 
-
-
 <?php
 include("navbar_loggedin.php");
+include("footer.php");
+?>
+
+
+<a class="fa fa-info-circle icon-space" aria-hidden="true" href="#" id="memberLink">Commented Courses</a>
+<?php
+
   if(!isset($_SESSION)) 
     { 
         session_start(); 
     } 
 
-if ($_SESSION['email']){
-	echo "Welcome, ".$_SESSION['email']." !<br><a href='logout.php'>Logout</a>";
+if (!$_SESSION['name']){	
+	die("You must be logged in!");
+
 }
 
 else{
-	die("You must be logged in!");
 }
 
 ?>
 
-<?php
-include("footer.php");
-?>
 
+
+<script src="https://code.jquery.com/jquery-1.12.3.min.js" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ="   crossorigin="anonymous"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+<script src="js/courses.js"></script>
 
 
 </body>

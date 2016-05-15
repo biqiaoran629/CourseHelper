@@ -24,7 +24,7 @@
 
 
   if($_SESSION){
-  if($_SESSION['email']){
+  if($_SESSION['name']){
     include("navbar_loggedin.php");
   }
   }
@@ -128,6 +128,7 @@ include("footer.php");
 
   <script src="https://code.jquery.com/jquery-1.12.3.min.js" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ="   crossorigin="anonymous"></script>
   <script src="js/bootstrap.min.js"></script>
+  <script src="js/angular.min.js"></script>
   <script src="js/contact.js"></script>
   <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
 

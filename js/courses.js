@@ -211,6 +211,8 @@ var courses =[
 
 var courses;
 var commentArray = [];
+var str = $('#logged-in').text();
+var username = str.substring(str.indexOf(' ')+1,str.indexOf('!'));
 
 var courseDB = new Firebase('https://course-helper.firebaseio.com/courses');
 var commentDB = new Firebase('https://course-helper.firebaseio.com/comments');
@@ -227,28 +229,28 @@ courseDB.on('value', function(snapshot){
 
 	for(var i = 0; i < courses.length; i++){
 
-	var idTD = '<td>' + courses[i].id + '</td>';
-	var nameTD = '<td>' + courses[i].name + '</td>';
-	var yearTD = '<td>' + courses[i].year + '</td>';
-	var boolTD = '<td>' + courses[i].bool + '</td>';
-	if (document.getElementById('not-logged-in')) {	
-		$('<tr>').addClass('.course-row').html(idTD + nameTD + yearTD + boolTD).appendTo('#courseTable');
-    }
-
-    if (document.getElementById('logged-in')) {
-    	var commentBtnTD = '<td><button class="btn-blue btn-comment" id=c' +i +'>Comment This Course</button></td>';
-    	var viewBtnTD = '<td><button class="btn-blue btn-view" id=v' +i + '>View Comments</button></td>';
-    	$('<tr>').addClass('.course-row').html(idTD + nameTD + yearTD + boolTD + commentBtnTD + viewBtnTD).appendTo('#courseTable');
-
-
-    }
-
-}
+		var idTD = '<td>' + courses[i].id + '</td>';
+		var nameTD = '<td>' + courses[i].name + '</td>';
+		var yearTD = '<td>' + courses[i].year + '</td>';
+		var boolTD = '<td>' + courses[i].bool + '</td>';
+		if (document.getElementById('not-logged-in')) {	
+			$('<tr>').addClass('.course-row').html(idTD + nameTD + yearTD + boolTD).appendTo('#courseTable');
+		}
 
 		if (document.getElementById('logged-in')) {
-    	$('<th>').addClass('.temp-th').html("Comments").appendTo('#tableHeader');
-    	$('<th>').addClass('.temp-th').html("View").appendTo('#tableHeader');
-    }
+			var commentBtnTD = '<td><button class="hvr-bounce-in btn-comment" id=c' +i +'>Comment This Course</button></td>';
+			var viewBtnTD = '<td><button class="hvr-bounce-in btn-view" id=v' +i + '>View Comments</button></td>';
+			$('<tr>').addClass('.course-row').html(idTD + nameTD + yearTD + boolTD + commentBtnTD + viewBtnTD).appendTo('#courseTable');
+
+
+		}
+
+	}
+
+	if (document.getElementById('logged-in')) {
+		$('<th>').addClass('.temp-th').html("Comments").appendTo('#tableHeader');
+		$('<th>').addClass('.temp-th').html("View").appendTo('#tableHeader');
+	}
 });
 
 
@@ -270,6 +272,10 @@ commentDB.on('value', function(snapshot){
 
 $('#courseTable').on('click','.btn-comment', function(e){
 
+	$('.error-msg').remove();
+	//$('input[name="name"]').removeClass('has-error');
+	$('textarea[name="message"]').removeClass('has-error');
+
 	for(var i = 0; i< courses.length; i++){
 
 		if('c'+i === e.target.id){
@@ -278,7 +284,7 @@ $('#courseTable').on('click','.btn-comment', function(e){
 			$('input[name="courseName"]').val(courses[i].id);
 
 		}	
-		}	
+	}	
 
 	
 });
@@ -286,33 +292,34 @@ $('#courseTable').on('click','.btn-comment', function(e){
 
 $('#submit-button').click(function(e){
 	var commentData = {
-	name: $('#comment-form').find('input[name="name"]').val(),
-	message:$('#comment-form').find('textarea[name="message"]').val(),
-	courseName:$('#comment-form').find('input[name="courseName"]').val()
+		name: username,
+		message:$('#comment-form').find('textarea[name="message"]').val(),
+		courseName:$('#comment-form').find('input[name="courseName"]').val()
 
-}	
+	}	
 
 	$('input','textarea').removeClass('has-error');
 	$('.error-msg').remove();
 
-	if (commentData.name === ""){
-		$('input[name="name"]').addClass('has-error');
-		$('<h6>').addClass('error-msg').html('Please fill out this field').insertAfter('input[name="name"]');
+	// if (commentData.name === ""){
+	// 	$('input[name="name"]').addClass('has-error');
+	// 	$('<h6>').addClass('error-msg').html('Please fill out this field').insertAfter('input[name="name"]');
 
-	}
+	// }
 	if(commentData.message === ""){
 		$('textarea[name="message"]').addClass('has-error');
 		$('<h6>').addClass('error-msg').html('Please fill out this field').insertAfter('textarea[name="message"]');
 	}
 	else{
-	console.log(commentData);
-	$('#comment-modal').modal('hide');
-	$('#comment-form').find('input[name="name"]').val("");
-	$('#comment-form').find('textarea[name="message"]').val("")
+		console.log(commentData);	
+		commentDB.push(commentData);	
+		$('#comment-form').find('textarea[name="message"]').val("");
+		$('#comment-modal').modal('hide');
+	// $('#comment-form').find('input[name="name"]').val("");
+	// $('#comment-form').find('textarea[name="message"]').val("")
 	alert('Your comments have been submitted!');
 
 }
-	commentDB.push(commentData);
 });
 
 
@@ -335,20 +342,45 @@ $('#courseTable').on('click','.btn-view', function(e){
 				if(commentArray[j].courseName === courses[i].id){
 					hasComment = true;
 					console.log(commentArray[j].message);
-				$('<h4>').addClass('comment-div-name').html(commentArray[j].name + ' commented: ').appendTo('.comment-div');
-				$('<p>').addClass('comment-div-msg').html(commentArray[j].message).appendTo('.comment-div');
-			}
+					$('<h4>').addClass('comment-div-name').html(commentArray[j].name + ' commented: ').appendTo('.comment-div');
+					$('<p>').addClass('comment-div-msg').html(commentArray[j].message).appendTo('.comment-div');
+				}
 
 			}
 			if(!hasComment){
-$('<p>').addClass('comment-div-msg').html("Nobody has commented on this course. Be the first one!").appendTo('.comment-div');
+				$('<p>').addClass('comment-div-msg').html("Nobody has commented on this course. Be the first one!").appendTo('.comment-div');
 
 			}
 
 		}	
-		}	
+	}	
 
 	
 });
 
-   
+$('#memberLink').click(function(e){
+
+	var userCommentArray = [];
+	for(var j = 0; j<commentArray.length; j++){
+		if(commentArray[j].name === username){
+			userCommentArray.push(commentArray[j]);
+			}			
+		}
+	console.log(userCommentArray);
+	if(userCommentArray.length === 0){
+			alert("You haven't commented on anything yet... Go to courses page to comment now!")
+		}
+	else{
+		var table = $('<table></table>').addClass("table table-hover memberTable");			
+		table.append("<tr><th>Course Name</th><th>Comment</th></tr>");
+			for(var j = 0; j<userCommentArray.length; j++){
+			table.append("<tr><td>" + userCommentArray[j].courseName  + "</td><td>" + userCommentArray[j].message + "</td></tr>");
+			$('#memberLink').hide();
+		}
+		table.appendTo('body');
+	}
+
+
+});
+
+

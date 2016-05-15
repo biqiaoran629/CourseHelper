@@ -13,12 +13,16 @@
 	$email = $_GET["email"];
 	$password = $_GET["password"];
 
-	$query =" SELECT * FROM user where email = '$email' and password = '$password'";
+	$query =" SELECT name FROM user where email = '$email' and password = '$password'";
 
 	$result = $con->query($query);
 
 	 if($result->num_rows != 1)
-	 	echo "Wrong combination of username and password";
+	 	echo "Wrong combination of email and password";
 	 else{	 	
-	 	$_SESSION['email']= $email;
+	 	//$_SESSION['email']= $email;
+	 	while($row = $result->fetch_assoc()){
+	 		$name = $row["name"];
+	 		$_SESSION['name'] = $name;
+	 	}
 	 }
