@@ -28,7 +28,7 @@
 
 
   if($_SESSION){
-  if($_SESSION['email']){
+  if($_SESSION['name']){
     include("navbar_loggedin.php");
   }
   }

@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/hover.css">
 	<script src="js/user.js"></script>
 	<!--  -->
 	<title>
@@ -24,7 +25,7 @@
 
 
 	if($_SESSION){
-		if($_SESSION['email']){
+		if($_SESSION['name']){
 			include("navbar_loggedin.php");
 		}
 	}
@@ -42,7 +43,7 @@
 		<h3 id="returnmsg"></h3>
 		<ul>
 			<li> Each student has to take all of the mandatory courses, and take three 300-level courses and three 400-level courses as electives</li>
-			<li> If you are registered, you can save the list of courses that you are going to take. You may register at the top of this page </li>
+			<li> If you are registered, you can comment on the courses, and view other people's comment on courses </li>
 		</ul>
 
 	</div>
@@ -278,15 +279,15 @@
 				<form id="comment-form">
 					<h4>Please enter your comments in the space below: </h4>
 					<br>
-					<input class="form-control" name="name" type="name" placeholder="Name" required=""></input>
-					<br>
-					<textarea class="form-control" cols="30" rows="10" type="tel" name="message" placeholder="Message"></textarea>
+					<!-- <input class="form-control box-shadow" name="name" type="name" placeholder="Name" required=""></input>
+					<br> -->
+					<textarea class="form-control box-shadow" cols="30" rows="10" type="tel" name="message" placeholder="Message"></textarea>
 					<input type="hidden" name ="courseName">
 				</form>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				<button id="submit-button" type="button" class="btn btn-primary">Submit</button>
+				<button type="button" class="btn hvr-shutter-in-horizontal" data-dismiss="modal">Close</button>
+				<button id="submit-button" type="button" class="btn hvr-shutter-in-horizontal">Submit</button>
 			</div>
 		</div><!-- /.modal-content -->
 	</div><!-- /.modal-dialog -->
@@ -299,13 +300,13 @@
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 				<h4 class="modal-title"></h4>
 			</div>
-			<div class="modal-body">
+			<div class="modal-body box-shadow">
 				<form id="view-comment">
 				<div class="comment-div"></div>
 				</form>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<button type="button" class="btn hvr-shutter-in-horizontal" data-dismiss="modal">Close</button>
 			</div>
 		</div><!-- /.modal-content -->
 	</div><!-- /.modal-dialog -->
