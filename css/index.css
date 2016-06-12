@@ -1,10 +1,16 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
+@font-face{
+    font-family: sky;
+    src:url(../fonts/Mf-July-Sky.ttf);
+}
+
 h1{
 
-text-align: center;  font-family: "Roboto", sans-serif;
-  background: rgba(0, 0, 0, 0.71)
-    color: #b3b3b3;
+text-align: center;  font-family: "sky", sans-serif;
+    background: rgba(237,239,238,0.7);
+    padding: 2rem;
+    margin: 0
 
 }
 
@@ -97,10 +103,8 @@ text-decoration: none;
 color: #EF3B3A;
 }
 body {
-background: rgb(228,239,192); /* Old browsers */
-background: -moz-linear-gradient(left,  rgba(228,239,192,1) 0%, rgba(171,189,115,1) 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(left,  rgba(228,239,192,1) 0%,rgba(171,189,115,1) 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to right,  rgba(228,239,192,1) 0%,rgba(171,189,115,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+background-image: url(../img/index.jpg);
+background-size:cover;
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4efc0', endColorstr='#abbd73',GradientType=1 ); /* IE6-9 */
 font-family: "Roboto", sans-serif;
 -webkit-font-smoothing: antialiased;

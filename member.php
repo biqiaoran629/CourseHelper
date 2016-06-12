@@ -19,11 +19,10 @@
 
 <?php
 include("navbar_loggedin.php");
-include("footer.php");
 ?>
 
 
-<a class="fa fa-info-circle icon-space" aria-hidden="true" href="#" id="memberLink">Commented Courses</a>
+<button id="memberLink">Commented Courses</button>
 <?php
 
   if(!isset($_SESSION)) 

@@ -39,23 +39,29 @@
 	<h1>Instructors</h1>
 
 
-<div class ="iWrapper">
-	<div class = "iDirectory">
-	<ul>
-		<li class='ilist' id="Donald Acton">Donald Acton</li>
-		<li class='ilist' id='Meghan Allen'>Meghan Allen</li>
-		<li class='ilist' id='Uri Ascher'>Uri Ascher</li>
-		<li class='ilist' id='Patrice Belleville'>Patrice Belleville</li>
-		<li class='ilist' id= 'Paul Carter'>Paul Carter</li>
-		<li class='ilist' id='Kurt Eiselt' >Kurt Eiselt</li>
-		<li class='ilist' id= 'Joel Friedman'>Joel Friedman</li>		
-		<li class='ilist' id='Nick Harvey'>Nick Harvey</li>
-		<li class='ilist' id='Gregor Kiczales'>Gregor Kiczales</li>
-		<li class='ilist' id='Ed Knorr'>Ed Knorr</li>
-		<li class='ilist' id= 'Jim Little'>Jim Little</li>
-		<li class='ilist' id='Raymond Ng'>Raymond Ng</li>
-		<li class='ilist' id='George Tsiknis'>George Tsiknis</li>
-		<li class='ilist' id='Steve Wolfman'>Steve Wolfman</li>
+
+
+<div class ="dropdown">	
+	<p>Use the dropdown button below to see instructors: </p>
+	<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    Instructors
+    <span class="caret"></span>
+  </button>
+	<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+		<li class='ilist'><a id='Donald Acton' href="#">Donald Acton</a></li>
+		<li class='ilist'><a id='Meghan Allen' href="#">Meghan Allen</a></li>
+		<li class='ilist'><a id='Uri Ascher' href="#">Uri Ascher</a></li>
+		<li class='ilist'><a id='Patrice Belleville' href="#">Patrice Belleville</a></li>
+		<li class='ilist'><a id='Paul Carter' href="#">Paul Carter</a></li>
+		<li class='ilist'><a id='Kurt Eiselt' href="#">Kurt Eiselt</a></li>
+		<li class='ilist'><a id='Joel Friedman' href="#">Joel Friedman</a></li>		
+		<li class='ilist'><a id='Nick Harvey' href="#">Nick Harvey</a></li>
+		<li class='ilist'><a id='Gregor Kiczales' href="#">Gregor Kiczales</a></li>
+		<li class='ilist'><a id='Ed Knorr' href="#">Ed Knorr</a></li>
+		<li class='ilist'><a id='Jim Little' href="#">Jim Little</a></li>
+		<li class='ilist'><a id='Raymond Ng' href="#">Raymond Ng</a></li>
+		<li class='ilist'><a id='George Tsiknis' href="#">George Tsiknis</a></li>
+		<li class='ilist'><a id='Steve Wolfman' href="#">Steve Wolfman</a></li>
 	</ul>
 	</div>
 

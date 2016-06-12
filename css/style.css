@@ -9,15 +9,15 @@
 }
 
 body{
-/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e4efc0+0,abbd73+100;Olive+3D+%232 */
-background: rgb(228,239,192); /* Old browsers */
-background: -moz-linear-gradient(left,  rgba(228,239,192,1) 0%, rgba(171,189,115,1) 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(left,  rgba(228,239,192,1) 0%,rgba(171,189,115,1) 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to right,  rgba(228,239,192,1) 0%,rgba(171,189,115,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4efc0', endColorstr='#abbd73',GradientType=1 ); /* IE6-9 */
+/*/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e4efc0+0,abbd73+100;Olive+3D+%232 */
+/*background: rgb(228,239,192); /* Old browsers */
+/*background: -moz-linear-gradient(left,  rgba(228,239,192,1) 0%, rgba(171,189,115,1) 100%); /* FF3.6-15 */
+/*background: -webkit-linear-gradient(left,  rgba(228,239,192,1) 0%,rgba(171,189,115,1) 100%); /* Chrome10-25,Safari5.1-6 */
+/*background: linear-gradient(to right,  rgba(228,239,192,1) 0%,rgba(171,189,115,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+/*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4efc0', endColorstr='#abbd73',GradientType=1 ); /* IE6-9 */
 
-}
-
+background-image: url(../img/background.jpg);
+}   
 
 h1 {
 	text-align: center;
@@ -87,7 +87,7 @@ th{
 
 .helper-info{
     font-family: 'coffee';
-    color: #4C0E0C;
+    color: #333;
 }
 
 .helper-info h2{
@@ -172,7 +172,6 @@ hr{
 .iWrapper{
     overflow: hidden;
 }
-
 .iDirectory{
     float:left;
     width:25%;
@@ -185,9 +184,9 @@ hr{
     color: black;
     font-size: 1.2rem;
     border: 1px solid white;
-    /*border-radius: 10px; /*圆角*/   
+    border-radius: 10px; /*圆角*/   
     padding: 6px;
-    /*margin: 0 1rem;*/
+    margin: 0 1rem;
     margin: 0 1rem 0 0rem; /*up right down left*/
     cursor: pointer;
     transition: .3s linear background-color;
@@ -200,21 +199,16 @@ hr{
 }
 
 .instructors{
-    border: 2px dashed black;
-    border-radius: 45%;
-    width:  40%;
+    width: 100%;
     display: inline-block;
-    margin-left: 25%;
+    margin-left:auto;
+    margin-right: auto;
     text-align: center;
-    background-color: #ccc;
     overflow: hidden;
     padding: 5rem;
-    margin: 0rem 15rem 120px 15rem;
 }
 
-.footer{
-    position: fixed;
-    bottom:0;    
+.footer{  
     background-color: #292c2f;
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
     box-sizing: border-box;
@@ -322,11 +316,13 @@ hr{
 
 
 #memberLink{
-    font-size: 3rem;
-    text-align: center;
-    width: 100%;
+    font-size: 1.5rem;
+    text-align: left;
+    width: 15%;
     margin-top: auto;
     margin-bottom: auto;
+    margin-left: 3rem;
+    padding: 0.5rem;
 }
 
 
@@ -338,3 +334,28 @@ hr{
     
 }
 
+@media(max-width: 768px){
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+    border-color: #101010;
+    text-align: center;
+}}
+
+.navbar-inverse {
+    background-color: rgba(6,6,4,0.3);
+    border-color: rgba(6,6,4,0.3);
+    }
+
+.dropdown p{
+    font-size: 2rem;
+}
+
+.dropdown {
+    text-align: center;
+}
+
+.dropdown-menu {
+  left: 50%;
+  right: auto;
+  text-align: center;
+  transform: translate(-50%, 0);
+}
